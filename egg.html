@@ -168,6 +168,14 @@
 				};
 				var eggplc=setInterval(function(){drawScreen();},canvasRefresh); //Refreshes screen
 				var clrspc=setInterval(function(){maintain();},canvasClear); //Periodically clears canvas and checks for game over
+				function refreshVariables(){
+					clearInterval(eggplc);
+					clearInterval(clrspc)
+					var canvasRefresh = document.getElementById("cnvRefTxt").value;
+					var canvasClear = document.getElementById("cnvClrTxt").value;
+					var eggplc=setInterval(function(){drawScreen();},canvasRefresh); //Refreshes screen
+					var clrspc=setInterval(function(){maintain();},canvasClear); //Clears Screen
+				};
 				function levelProp(givenLevel){ //Draws items local to certain levels
 					switch(givenLevel){
 						case 0:
@@ -269,14 +277,6 @@
 				if(infLives==0){
 					lives--;
 				};
-			};
-			function refreshVariables(){
-				clearInterval(eggplc);
-				clearInterval(clrspc)
-				var canvasRefresh = document.getElementById("cnvRefTxt").value;
-				var canvasClear = document.getElementById("cnvClrTxt").value;
-				var eggplc=setInterval(function(){drawScreen();},canvasRefresh); //Refreshes screen
-				var clrspc=setInterval(function(){maintain();},canvasClear); //Clears Screen
 			};
 			runBackgroundMusic(1);
         </script>
