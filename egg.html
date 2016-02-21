@@ -153,7 +153,6 @@
 						eggx=0;
 						questionDialog();
 					};
-					refreshVariables();
 					levelProp(zlevel); //Calls local level items
 				};
 				function maintain(){ //Listens for game-overs and clears screen
@@ -272,8 +271,12 @@
 				};
 			};
 			function refreshVariables(){
+				clearInterval(eggplc);
+				clearInterval(clrspc)
 				var canvasRefresh = document.getElementById("cnvRefTxt").value;
 				var canvasClear = document.getElementById("cnvClrTxt").value;
+				var eggplc=setInterval(function(){drawScreen();},canvasRefresh); //Refreshes screen
+				var clrspc=setInterval(function(){maintain();},canvasClear); //Clears Screen
 			};
 			runBackgroundMusic(1);
         </script>
@@ -296,6 +299,7 @@
 	<br/>
 	<input type="text" id="cnvRefTxt" value="100"/>
 	<input type="text" id="cnvClrTxt" value="100"/>
+	<button onclick="refreshVariables();">Set Variables</button>
 	<h3>Known Bugs</h3>
 	<p>Screen flickers</p>
 	<p>Answer screen loads when holding right in answer screen</p>
