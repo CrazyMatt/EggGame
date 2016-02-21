@@ -348,6 +348,7 @@
 						eggx=0;
 						questionDialog();
 					};
+					refreshVariables();
 					levelProp(zlevel); //Calls local level items
 				};
 				function maintain(){ //Listens for game-overs and clears screen
@@ -490,7 +491,6 @@
 	<br/>
 	<input type="text" id="cnvRefTxt" value="100"/>
 	<input type="text" id="cnvClrTxt" value="100"/>
-	<button onclick="refreshVariables();">Refresh Variables</button>
 	<h3>Known Bugs</h3>
 	<p>Screen flickers</p>
 	<p>Answer screen loads when holding right in answer screen</p>
