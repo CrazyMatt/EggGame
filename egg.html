@@ -1,0 +1,470 @@
+<!--[Build: 10-22-2015 On: 9-22-2015]-->
+<!--[Build: 9-22-2015  On: 9-15-2015]-->
+<!--[Build: 9-15-2015]-->
+<html>
+    <head>
+        <title>Matt's Egg-ceptional Game</title>
+        <style>
+            div.game{
+                width: 800px;
+                height: 500px;
+                background-color: grey;
+                background-image: url(http://www.crazymatt.net/games/egg/main.png);
+                background-size: 300px 300px;
+                text-align: center;
+                background-repeat: no-repeat;
+                background-position: center;
+                animation-name: game; /* Chrome, Safari, Opera */
+                animation-duration: 3s; /* Chrome, Safari, Opera */
+                animation-iteration-count: infinite;
+            }
+            div.game2{
+                width: 800px;
+                height: 500px;
+                background-color: lightgrey;
+                text-align: center;                
+                //background-image: url(http://www.crazymatt.net/games/egg/level1.png);
+                //background-size: 800px 500px;
+            }
+            h1.game{
+                color: green;
+                font-family: lucida console;
+                font-size: 50;
+                position: relative;
+                top: 30px;
+				animation-name: gameh1;
+                animation-duration: 10s;
+                animation-iteration-count: infinite;
+            }
+            h2.game{
+                color: green;
+                font-family: lucida console;
+                font-size: 30;
+                position: relative;
+                text-align: left;
+                left: 30px;
+				animation-name: gameh1;
+                animation-duration: 10s;
+                animation-iteration-count: infinite;
+            }
+			@keyframes gameh1 {
+				0% {transform: rotate(5deg);}
+				50% {transform: rotate(-5deg);}
+				100% {transform: rotate(5deg);}
+			}
+            @keyframes game {
+                0% {background-color: pink;}
+                25% {background-color: #66FF99;}
+                50% {background-color: yellow;}
+                75% {background-color: #33CCFF;}
+                100% {background-color: pink;}
+            }
+            button.start{
+                position: relative;
+                top: 300px;
+            }
+            h3.level1{
+                color: green;
+                font-family: lucida console;
+                font-size: 20px;
+                position: relative;
+                top: 225px;
+            }
+            h3.level1norm{
+                color: green;
+                font-family: lucida console;
+                font-size: 20px;
+                position: relative;
+                top: 10px;
+				animation-name: gameh1;
+                animation-duration: 10s;
+                animation-iteration-count: infinite;
+            }
+            button.s1{
+                position: relative;
+                top: 266;
+                left: -230;
+				background-image: url(http://www.crazymatt.net/games/egg/main.png);
+                background-size: 48px 48px;
+                background-repeat: no-repeat;
+				border: none;
+				height: 48px;
+				background-position: center;
+				width: 48px;
+            }
+            button.s2{
+                position: relative;
+                top: 266;
+                left: -114;
+				background-image: url(http://www.crazymatt.net/games/egg/main.png);
+                background-size: 48px 48px;
+                background-repeat: no-repeat;
+				border: none;
+				height: 48px;
+				background-position: center;
+				width: 48px;
+            }
+            button.s3{
+                position: relative;
+                top: 266;
+                left: 2;
+				background-image: url(http://www.crazymatt.net/games/egg/main.png);
+                background-size: 48px 48px;
+                background-repeat: no-repeat;
+				border: none;
+				height: 48px;
+				background-position: center;
+				width: 48px;
+            }
+            button.s4{
+                position: relative;
+                top: 266;
+                left: 118;
+				background-image: url(http://www.crazymatt.net/games/egg/main.png);
+                background-size: 48px 48px;
+                background-repeat: no-repeat;
+				border: none;
+				height: 48px;
+				background-position: center;
+				width: 48px;
+            }
+            button.s5{
+                position: relative;
+                top: 266;
+                left: 234;
+                border: no;
+				background-image: url(http://www.crazymatt.net/games/egg/main.png);
+                background-size: 48px 48px;
+                background-repeat: no-repeat;
+				border: none;
+				height: 48px;
+				background-position: center;
+				width: 48px;
+            }
+            div.level1{
+                width: 800px;
+                height: 500px;
+                background-color: lightgreen;
+                text-align: center;
+                background-image: url(http://www.crazymatt.net/games/egg/main.png);
+                background-size: 300px 300px;
+                background-repeat: no-repeat;
+                background-position: 350px 100px;
+            }
+            div.lvl1side{
+                width: 200px;
+                height: 500px;
+                background-color: lightgrey;
+                text-align: center;
+            }
+            div.level2{
+                width: 800px;
+                height: 500px;
+                background-color: grey;
+                text-align: left;
+            }
+            div.lvl2egg{
+                height: 500px;
+                width: 800px;
+                background-color: lightyellow;
+                text-align: center;
+            }
+            div.void{
+                height: 250px;
+                width: 100px;
+                position: fixed;
+                background-color: blue;
+                top: 100px;
+                left: 600px;
+                background: -webkit-linear-gradient(grey, black); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(grey, black); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(grey, black); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(grey, black); /* Standard syntax */
+            }
+			button.egg-start{
+				position: relative;
+                top: 300px;
+				background-image: url(http://www.crazymatt.net/games/egg/main.png);
+                background-size: 48px 48px;
+                background-repeat: no-repeat;
+				border: none;
+				height: 48px;
+				background-position: center;
+				animation-name: game;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+			}
+        </style>
+    </head>
+    <body>
+	<div id="audioSet"></div>
+        <script>
+			var lineGeneration=false;
+			var speed=10;
+			var stage=0;
+			var lives=3;
+			var zlevel=0;
+			var clrarea=false;
+			var eggx=0;
+			var eggy=0;
+			var imgRecip1;
+			var imgRecip2;
+			var imgRecipAns;
+			var ran1;
+			var ran2;
+			var largerRandom;
+			var smallerRandom;
+			function reduce(numerator,denominator){
+				var gcd = function gcd(a,b){
+					return b ? gcd(b, a%b) : a;
+					};
+				gcd = gcd(numerator,denominator);
+				return [numerator/gcd, denominator/gcd];
+			}
+			document.onkeydown = function(e) {
+				switch (e.keyCode) {
+					case 37:
+						console.log('left');
+						eggx=eggx-50;
+						clrarea=true;
+						break;
+					case 38:
+						console.log('up');
+						eggy=eggy-50;
+						clrarea=true;
+						break;
+					case 39:
+						console.log('right');
+						eggx=eggx+50;
+						clrarea=true;
+						break;
+					case 40:
+						console.log('down');
+						eggy=eggy+50;
+						clrarea=true;
+						break;
+				}
+			};
+			var values=['<img data-ans="2" src="http://bit.ly/1Lr649d"/>','<img data-ans="2" src="http://bit.ly/1gkTu2Q"/>','<img data-ans="83" src="http://bit.ly/1Lr6SuW"/>','<img data-ans="25" src="http://bit.ly/1Lr75Oz"/>','<img data-ans="5" src="http://bit.ly/1Lr7iS5"/>','<img data-ans="2" src="http://bit.ly/1KLchTg"/>','<img data-ans="1" src="http://bit.ly/1KLciq1"/>','<img data-ans="379" src="http://bit.ly/1Lr7MaB"/>','<img data-ans="12" src="http://bit.ly/1Lr7QXW"/>','<img data-ans="313" src="http://bit.ly/1gkPPlu"/>','<img data-ans="23.015625" src="http://bit.ly/1Lr7tge"/>','<img data-ans="0" src="http://bit.ly/1KLcaqG"/>','<img data-ans="1474/999" src="http://bit.ly/1Lr5Crz"/>','<img data-ans="5/703" src="http://bit.ly/1KLbphe"/>','<img data-ans="i" src="http://bit.ly/1KLbstD"/>','<img data-ans="i" src="http://bit.ly/1Lr6NHw"/>','<img data-ans="83/5" src="http://bit.ly/1KLc02E"/>','<img data-ans="8.372" src="http://bit.ly/1Lr7HUx"/>','<img data-ans="0" src="http://bit.ly/1Lr7L6J"/>','<img data-ans="10/3" src="http://bit.ly/1gkN9V2"/>','<img data-ans="-8/9" src="http://bit.ly/1gkO4ov"/>','<img data-ans="77.76" src="http://bit.ly/1gkOifj"/>','<img data-ans="86/3" src="http://bit.ly/1MlK4m2"/>','<img data-ans="19/8" src="http://bit.ly/1NrnreF"/>','<img data-ans="41/12" src="http://bit.ly/1UQFfjN"/>','<img data-ans="-31.28" src="http://bit.ly/1NrnFCk"/>'];
+			var values2;
+			var xfuncans;
+			var countdec=3;
+			function reloadnum(){
+				var select=document.getElementById("num");
+				var selection=Math.floor((Math.random()*3));
+				if(selection==0){
+					var valueToUse=values[Math.floor(Math.random() * values.length)];
+					select.innerHTML=valueToUse;
+				};
+				if(selection==1||selection==2){
+					imgRecip1=Math.floor((Math.random() * 10) + 1);
+					imgRecip2=Math.floor((Math.random() * 10) + 1);
+					ran1=Math.floor((Math.random() * 20) - 9);
+					ran2=Math.floor((Math.random() * 20) - 9);
+					imgRecipAns=reduce(imgRecip2,imgRecip1);
+					if(ran1>ran2){largerRandom="a";smallerRandom="b";};
+					if(ran1<ran2){largerRandom="b";smallerRandom="a";};
+					values2=['<img data-ans="'+imgRecipAns[0]+'/'+imgRecipAns[1]+'" src="http://chart.apis.google.com/chart?cht=tx&chl=reciprocal%5C%3Aof%3A%5C%3B%5C%3B%5C%3B%5Cfrac%7B'+imgRecip1+'%7D%7B'+imgRecip2+'%7D">','<img data-ans="'+(ran1+ran2)+'" src="http://chart.apis.google.com/chart?cht=tx&chl=add%3A%5C%3B%5C%3B%5C%3B%20%5Cbig('+ran1+'%5Cbig)%20%2B%20%5Cbig('+ran2+'%5Cbig)%20">','<img data-ans="'+(ran1*ran2)+'" src="http://chart.apis.google.com/chart?cht=tx&chl=multiply%3A%5C%3B%5C%3B%5C%3B%5Cbig('+ran1+'%5Cbig)%5Ctimes%5Cbig('+ran2+'%5Cbig)%20">','<img data-ans="'+largerRandom+">"+smallerRandom+'" src="http://chart.apis.google.com/chart?cht=tx&chl=order%3A%5C%3B%5Cbegin%7Bcases%7Da%3D'+ran1+'%5C%5Cb%3D'+ran2+'%5Cend%7Bcases%7D">'];
+					var valueToUse=values2[Math.floor(Math.random() * values2.length)];
+					select.innerHTML=valueToUse;
+				};
+				var answeris="The answer is: ";
+				xfuncans = document.getElementsByTagName("img")[0].getAttribute("data-ans");
+				console.log(answeris.concat(xfuncans));
+			};
+            function screen2(){
+				var select=document.getElementById("gamebox");
+				zlevel=0;
+                select.innerHTML='<div class="game2"><h1 class="game">Level Select</h1><h3 class="level1">Goal: Get to the egg box safely! Avoid frying pans and holes on the way.</h3><button class="s1" onclick="gameload();">1</button><button onclick="" class="s2">2</button><button class="s3">3</button><button class="s4">4</button><button class="s5">5</button></div>';
+			};
+			function questionDialog(){
+				var select=document.getElementById("gamebox");
+				select.innerHTML='<div class="level1"><div class="lvl1side"><h3 class="level1norm">Eggs Left:</h3><h3 id="counter" class="level1norm">3</h3><br/><br/><br/><br/><br/><br/><br/>Answer. Use "/" for fractions and i for irrationals. Simplify for reciprocals. Answer order problems in the form of a>b or b>a, and only use variables in your answer.<br/><br/><form id="selection" method="get"><input type="text" id="answer"/><br/><br/><button onclick="screen2();">Back</button><br/><br/><input type="button" id="allnatural" value="Ok" onclick="allnat();"/></form></div><h1 class="game" id="num" style="top:-300px; left: 90px;">0</h1></div>';
+				reloadnum();
+			};
+			function gameload(){
+				var panx=200;
+				var pany=200;
+				var livesword="Lives left: ";
+				var select=document.getElementById("gamebox");
+				select.innerHTML='<canvas id="level" width="800px" height="500px" style="background-image: url(http://www.crazymatt.net/textures/ppd/grass.png);"></canvas><canvas height="100px" width="800px" id="lvlAccent"></canvas>';
+				var gamearea=document.getElementById("level");
+				var ctx = gamearea.getContext("2d");
+				function drawScreen(){
+					ctx.beginPath();
+					if(eggx>750){ //Makes egg boundaries
+						eggx=eggx-50;
+					};
+					if(eggy>450){
+						eggy=eggy-50;
+					};
+					if(eggx<0){
+						eggx=eggx+50;
+					};
+					if(eggy<0){
+						eggy=eggy+50;
+					};
+					eggimg = new Image(); //Loads egg image
+					eggimg.src = 'http://www.crazymatt.net/games/egg/egg.gif';
+					eggimg.onload = function(){
+						ctx.drawImage(eggimg,eggx,eggy,50,50);
+					}
+					if(lineGeneration==true){
+						for(lcount=0;lcount<16;lcount++){
+							ctx.moveTo(0,lcount*50);
+							ctx.lineTo(800,lcount*50);
+							ctx.moveTo(lcount*50,0);
+							ctx.lineTo(lcount*50,500);
+						};
+					};
+					ctx.stroke();
+					cartonimg = new Image(); //Loads carton image
+					cartonimg.src = 'http://www.crazymatt.net/games/egg/carton.png';
+					cartonimg.onload = function(){
+						ctx.drawImage(cartonimg,650,0,150,100);
+					};
+					ctx.font = "12px Arial";
+					ctx.fillText("Use arrow keys to move.",10,480);
+					ctx.fillText("egg box = way to next level | fry pan = enemy | black = hole",10,495);
+					ctx.fillStyle='yellow';
+					ctx.font = "20px Arial";
+					ctx.fillText(livesword.concat(lives),3,23);
+					if(eggx>=650 & eggy<=50){ //Opens question window if in corner
+						eggx=0;
+						questionDialog();
+					};
+					levelProp(zlevel); //Calls local level items
+				};
+				function maintain(){ //Listens for game-overs and clears screen
+					ctx.clearRect(0, 0, gamearea.width, gamearea.height);
+					if(lives==0){
+						eggx=0;
+						eggy=0;
+						lives=3;
+						countdec=3;
+						alert("You lose!");
+						screen2();
+					};
+				};
+				var eggplc=setInterval(function(){drawScreen();},25); //Refreshes screen
+				var clrspc=setInterval(function(){maintain();},100); //Periodically clears canvas and checks for game over
+				function levelProp(givenLevel){ //Draws items local to certain levels
+					switch(givenLevel){
+						case 0:
+							ctx.fillStyle='tan';
+							ctx.fillRect(100,100,150,150);
+							createEnemy(0);
+							break;
+						case 1:
+							ctx.fillStyle='black';
+							ctx.fillRect(350,0,50,400);
+							if(eggx==350){
+								if(eggy<400){
+									lifeLost();	
+								};
+							};
+							createEnemy(1);
+							break;
+						case 2:
+							createEnemy(2);
+							break;
+					};
+				};
+				function createEnemy(pathSelector){ //Generates enemies (frying pans)
+					panimg = new Image(); //Loads egg image
+					panimg.src = 'http://www.crazymatt.net/games/egg/pan.png';
+					panimg.onload = function(){
+						ctx.drawImage(panimg,panx,pany,50,50);
+					};
+					if(eggx==panx){
+						if(eggy==pany){
+							lifeLost();
+						};
+					};
+					switch(pathSelector){
+						case 0:
+							panx=600;
+							pany=350;
+							break;
+						case 1:
+							speed=10;
+							ctx.clearRect(0, 350, 350, 50);
+							if(stage==0*speed){panx=0;pany=350;};
+							if(stage==1*speed){panx=50;pany=350;};
+							if(stage==2*speed){panx=100;pany=350;};
+							if(stage==3*speed){panx=150;pany=350;};
+							if(stage==4*speed){panx=200;pany=350;};
+							if(stage==5*speed){panx=250;pany=350;};
+							if(stage==6*speed){panx=300;pany=350;};
+							if(stage==7*speed){panx=250;pany=350;};
+							if(stage==8*speed){panx=200;pany=350;};
+							if(stage==9*speed){panx=150;pany=350;};
+							if(stage==10*speed){panx=100;pany=350;};
+							if(stage==11*speed){panx=50;pany=350;};
+							stage++;
+							if(stage>11*speed){stage=0;};
+							break;
+						case 2:
+							speed=20;
+							ctx.clearRect(200, 150, 100, 100);
+							if(stage==0*speed){panx=200;pany=150;};
+							if(stage==1*speed){panx=250;pany=150;};
+							if(stage==2*speed){panx=250;pany=200;};
+							if(stage==3*speed){panx=200;pany=200;};
+							if(stage>3*speed){stage=0;};
+							stage++;
+							break;
+					};
+				};
+			};
+			function allnat(){
+				if(countdec==0){
+					zlevel++;
+					countdec=3;
+					gameload();
+				};
+				if (document.getElementById("answer").value==xfuncans){
+					countdec--;
+					var dec=document.getElementById("counter");
+					dec.innerHTML=countdec;
+					reloadnum();
+				}else{
+					lifeLost();
+				};	
+				return false;
+			};
+			function runBackgroundMusic(musicState){
+				var audioDummy=document.getElementById("audioSet");
+				if(musicState==1){
+					audioDummy.innerHTML='<audio autoplay loop><source src="http://www.crazymatt.net/games/egg/blipstream.mp3" type="audio/mpeg"></audio>';
+				};
+				if(musicState==0){
+					audioDummy.innerHTML='';
+				};
+			};
+			function lifeLost(){
+				eggx=0;
+				eggy=0;
+				lives--;
+			};
+			runBackgroundMusic(1);
+        </script>
+		<div id="gamebox"> <!--Start game view box-->
+			<div class="game">
+				<h1 class="game">Egg-ceptional Operations</h1>
+				<h2 class="game">By Matthew<br/></h2>
+				<button onclick="screen2();" class="egg-start">Start Game</button>
+			</div>
+		</div>
+        <p>Game not working? Make sure you are using the latest version of Google Chrome or Mozilla Firefox.<br/>Game Copyright (C) 2015 Crazymatt.net. All rights reserved unless otherwise stated.<br/>Music by Kevin MacLeod and used with permission.</p>
+	<h3>Debug</h3>	
+	<button onclick="zlevel++;">Next Level</button><button onclick="zlevel--;">Previous Level</button><button onclick="lineGeneration=true;">Show Lines</button><button onclick="lineGeneration=false;">Hide Lines</button><button onclick="runBackgroundMusic(1);">Music On</button><button onclick="runBackgroundMusic(0);">Music Off</button><!--<button onclick="countdec=0;">Debug Math</button>-->
+	<h3>Known Bugs</h3>
+	<p>Screen flickers</p>
+	<p>Answer screen loads when holding right in answer screen</p>
+	<!--<audio autoplay loop>
+		<source src="http://www.crazymatt.net/games/egg/blipstream.mp3" type="audio/mpeg">
+	</audio>-->
+	
+    </body>
+</html>
