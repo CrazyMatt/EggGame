@@ -223,6 +223,8 @@
 			var largerRandom;
 			var smallerRandom;
 			var infLives=0;
+			var canvasRefresh=25;
+			var canvasClear=100;
 			function reduce(numerator,denominator){
 				var gcd = function gcd(a,b){
 					return b ? gcd(b, a%b) : a;
@@ -359,8 +361,8 @@
 						screen2();
 					};
 				};
-				var eggplc=setInterval(function(){drawScreen();},25); //Refreshes screen
-				var clrspc=setInterval(function(){maintain();},100); //Periodically clears canvas and checks for game over
+				var eggplc=setInterval(function(){drawScreen();},canvasRefresh); //Refreshes screen
+				var clrspc=setInterval(function(){maintain();},canvasClear); //Periodically clears canvas and checks for game over
 				function levelProp(givenLevel){ //Draws items local to certain levels
 					switch(givenLevel){
 						case 0:
@@ -463,6 +465,10 @@
 					lives--;
 				};
 			};
+			function refreshVariables(){
+				var canvasRefresh = document.getElementById("cnvRefTxt").value;
+				var canvasClear = document.getElementById("cnvClrTxt").value;
+			};
 			runBackgroundMusic(1);
         </script>
 		<div id="gamebox"> <!--Start game view box-->
@@ -481,6 +487,10 @@
 	<button onclick="zlevel++;">Next Level</button><button onclick="zlevel--;">Previous Level</button><button onclick="lineGeneration=true;">Show Lines</button><button onclick="lineGeneration=false;">Hide Lines</button><button onclick="runBackgroundMusic(1);">Music On</button><button onclick="runBackgroundMusic(0);">Music Off</button><!--<button onclick="countdec=0;">Debug Math</button>-->
 	<br/>
 	<button onclick="lives++;">Add Life</button><button onclick="lives--;">Subtract Life</button><button onclick="infLives=1;">Enable Infinite Lives</button><button onclick="infLives=0;">Disable Infinite Lives</button><button onclick="eggx=eggx-50;">Move Left</button><button onclick="eggx=eggx+50;">Move Right</button><button onclick="eggy=eggy-50;">Move Up</button><button onclick="eggy=eggy+50;">Move Down</button>
+	<br/>
+	<input type="text" id="cnvRefTxt" value="25"/>
+	<input type="text" id="cnvClrTxt" value="100"/>
+	<button onclick="refreshVariables();">Refresh Variables</button>
 	<h3>Known Bugs</h3>
 	<p>Screen flickers</p>
 	<p>Answer screen loads when holding right in answer screen</p>
