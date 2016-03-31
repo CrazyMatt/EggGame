@@ -39,22 +39,22 @@
 			}
 			document.onkeydown = function(e) {
 				switch (e.keyCode) {
-					case 37:
+					case 37 || 65:
 						console.log('left');
 						eggx=eggx-50;
 						clrarea=true;
 						break;
-					case 38:
+					case 38 || 87:
 						console.log('up');
 						eggy=eggy-50;
 						clrarea=true;
 						break;
-					case 39:
+					case 39 || 68:
 						console.log('right');
 						eggx=eggx+50;
 						clrarea=true;
 						break;
-					case 40:
+					case 40 || 83:
 						console.log('down');
 						eggy=eggy+50;
 						clrarea=true;
