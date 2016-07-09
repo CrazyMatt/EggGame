@@ -4,6 +4,7 @@
 <!--[Build: 10-22-2015 On: 9-22-2015]-->
 <!--[Build: 9-22-2015  On: 9-15-2015]-->
 <!--[Build: 9-15-2015]-->
+<!DOCTYPE html>
 <html>
     <head>
         <title>Matt's Egg-ceptional Game</title>
@@ -33,10 +34,10 @@
 			function reduce(numerator,denominator){
 				var gcd = function gcd(a,b){
 					return b ? gcd(b, a%b) : a;
-					};
+				};
 				gcd = gcd(numerator,denominator);
 				return [numerator/gcd, denominator/gcd];
-			}
+			};
 			document.onkeydown = function(e) {
 				switch (e.keyCode) {
 					case 37 || 65:
@@ -59,7 +60,7 @@
 						eggy=eggy+50;
 						clrarea=true;
 						break;
-				}
+				};
 			};
 			var values=['<img data-ans="2" src="http://bit.ly/1Lr649d"/>','<img data-ans="2" src="http://bit.ly/1gkTu2Q"/>','<img data-ans="83" src="http://bit.ly/1Lr6SuW"/>','<img data-ans="25" src="http://bit.ly/1Lr75Oz"/>','<img data-ans="5" src="http://bit.ly/1Lr7iS5"/>','<img data-ans="2" src="http://bit.ly/1KLchTg"/>','<img data-ans="1" src="http://bit.ly/1KLciq1"/>','<img data-ans="379" src="http://bit.ly/1Lr7MaB"/>','<img data-ans="12" src="http://bit.ly/1Lr7QXW"/>','<img data-ans="313" src="http://bit.ly/1gkPPlu"/>','<img data-ans="23.015625" src="http://bit.ly/1Lr7tge"/>','<img data-ans="0" src="http://bit.ly/1KLcaqG"/>','<img data-ans="1474/999" src="http://bit.ly/1Lr5Crz"/>','<img data-ans="5/703" src="http://bit.ly/1KLbphe"/>','<img data-ans="i" src="http://bit.ly/1KLbstD"/>','<img data-ans="i" src="http://bit.ly/1Lr6NHw"/>','<img data-ans="83/5" src="http://bit.ly/1KLc02E"/>','<img data-ans="8.372" src="http://bit.ly/1Lr7HUx"/>','<img data-ans="0" src="http://bit.ly/1Lr7L6J"/>','<img data-ans="10/3" src="http://bit.ly/1gkN9V2"/>','<img data-ans="-8/9" src="http://bit.ly/1gkO4ov"/>','<img data-ans="77.76" src="http://bit.ly/1gkOifj"/>','<img data-ans="86/3" src="http://bit.ly/1MlK4m2"/>','<img data-ans="19/8" src="http://bit.ly/1NrnreF"/>','<img data-ans="41/12" src="http://bit.ly/1UQFfjN"/>','<img data-ans="-31.28" src="http://bit.ly/1NrnFCk"/>'];
 			var values2;
@@ -124,7 +125,7 @@
 					eggimg.src = 'http://www.crazymatt.net/games/egg/egg.gif';
 					eggimg.onload = function(){
 						ctx.drawImage(eggimg,eggx,eggy,50,50);
-					}
+					};
 					if(lineGeneration==true){
 						for(lcount=0;lcount<16;lcount++){
 							ctx.moveTo(0,lcount*50);
@@ -286,26 +287,24 @@
 				<h2 class="game">By Matthew<br/></h2>
 				<button onclick="screen2();" class="egg-start">Start Game</button>
 			</div>
-			
 		</div>
 		<div class="underbox">
-				<p>Progress</p>
+			<p>Progress</p>
 		</div>
         <p>Game not working? Make sure you are using the latest version of Google Chrome or Mozilla Firefox.<br/>Game Copyright (C) 2015 Crazymatt.net. All rights reserved unless otherwise stated.<br/>Music by Kevin MacLeod and used with permission.</p>
-	<h3>Debug</h3>	
-	<button onclick="zlevel++;">Next Level</button><button onclick="zlevel--;">Previous Level</button><button onclick="lineGeneration=true;">Show Lines</button><button onclick="lineGeneration=false;">Hide Lines</button><button onclick="runBackgroundMusic(1);">Music On</button><button onclick="runBackgroundMusic(0);">Music Off</button><!--<button onclick="countdec=0;">Debug Math</button>-->
-	<br/>
-	<button onclick="lives++;">Add Life</button><button onclick="lives--;">Subtract Life</button><button onclick="infLives=1;">Enable Infinite Lives</button><button onclick="infLives=0;">Disable Infinite Lives</button><button onclick="eggx=eggx-50;">Move Left</button><button onclick="eggx=eggx+50;">Move Right</button><button onclick="eggy=eggy-50;">Move Up</button><button onclick="eggy=eggy+50;">Move Down</button>
-	<br/>
-	<input type="text" id="cnvRefTxt" value="100"/>
-	<input type="text" id="cnvClrTxt" value="100"/>
-	<button onclick="refreshVariables();">Set Variables</button>
-	<h3>Known Bugs</h3>
-	<p>Screen flickers</p>
-	<p>Answer screen loads when holding right in answer screen</p>
-	<!--<audio autoplay loop>
-		<source src="http://www.crazymatt.net/games/egg/blipstream.mp3" type="audio/mpeg">
-	</audio>-->
-	
+		<h3>Debug</h3>	
+		<button onclick="zlevel++;">Next Level</button><button onclick="zlevel--;">Previous Level</button><button onclick="lineGeneration=true;">Show Lines</button><button onclick="lineGeneration=false;">Hide Lines</button><button onclick="runBackgroundMusic(1);">Music On</button><button onclick="runBackgroundMusic(0);">Music Off</button><!--<button onclick="countdec=0;">Debug Math</button>-->
+		<br/>
+		<button onclick="lives++;">Add Life</button><button onclick="lives--;">Subtract Life</button><button onclick="infLives=1;">Enable Infinite Lives</button><button onclick="infLives=0;">Disable Infinite Lives</button><button onclick="eggx=eggx-50;">Move Left</button><button onclick="eggx=eggx+50;">Move Right</button><button onclick="eggy=eggy-50;">Move Up</button><button onclick="eggy=eggy+50;">Move Down</button>
+		<br/>
+		<input type="text" id="cnvRefTxt" value="100"/>
+		<input type="text" id="cnvClrTxt" value="100"/>
+		<button onclick="refreshVariables();">Set Variables</button>
+		<h3>Known Bugs</h3>
+		<p>Screen flickers</p>
+		<p>Answer screen loads when holding right in answer screen</p>
+		<!--<audio autoplay loop>
+			<source src="http://www.crazymatt.net/games/egg/blipstream.mp3" type="audio/mpeg">
+		</audio>-->
     </body>
 </html>
