@@ -1,6 +1,7 @@
 <!--Before you go on, realize that this is probably the worst piece of software in existance. Alright, go on.-->
 <!--Go to https://rawgit.com/CrazyMatt/EggGame/master/egg.html to view th git version-->
 
+<!--[Build: 7-8-2016 On: 10-22-2015]-->
 <!--[Build: 10-22-2015 On: 9-22-2015]-->
 <!--[Build: 9-22-2015  On: 9-15-2015]-->
 <!--[Build: 9-15-2015]-->
@@ -31,6 +32,7 @@
 			var infLives=0;
 			var canvasRefresh=25;
 			var canvasClear=100;
+			var squareSize = 50;
 			function reduce(numerator,denominator){
 				var gcd = function gcd(a,b){
 					return b ? gcd(b, a%b) : a;
@@ -42,22 +44,22 @@
 				switch (e.keyCode) {
 					case 37 || 65:
 						console.log('left');
-						eggx=eggx-50;
+						move('left');
 						clrarea=true;
 						break;
 					case 38 || 87:
 						console.log('up');
-						eggy=eggy-50;
+						move('up');
 						clrarea=true;
 						break;
 					case 39 || 68:
 						console.log('right');
-						eggx=eggx+50;
+						move('right');
 						clrarea=true;
 						break;
 					case 40 || 83:
 						console.log('down');
-						eggy=eggy+50;
+						move('down');
 						clrarea=true;
 						break;
 				};
@@ -109,7 +111,9 @@
 				var ctx = gamearea.getContext("2d");
 				function drawScreen(){
 					ctx.beginPath();
-					if(eggx>750){ //Makes egg boundaries
+					// Makes egg boundaries
+					// TODO: Convert 'egg = egg + 50' to move('direction') fior all statements
+					if(eggx>750){
 						eggx=eggx-50;
 					};
 					if(eggy>450){
@@ -121,7 +125,7 @@
 					if(eggy<0){
 						eggy=eggy+50;
 					};
-					eggimg = new Image(); //Loads egg image
+					eggimg = new Image(); // Loads egg image
 					eggimg.src = 'http://www.crazymatt.net/games/egg/egg.gif';
 					eggimg.onload = function(){
 						ctx.drawImage(eggimg,eggx,eggy,50,50);
@@ -135,7 +139,7 @@
 						};
 					};
 					ctx.stroke();
-					cartonimg = new Image(); //Loads carton image
+					cartonimg = new Image(); // Loads carton image
 					cartonimg.src = 'http://www.crazymatt.net/games/egg/carton.png';
 					cartonimg.onload = function(){
 						ctx.drawImage(cartonimg,650,0,150,100);
@@ -150,13 +154,13 @@
 					}else if(infLives==1){
 						ctx.fillText("Inf",3,23);
 					};
-					if(eggx>=650 & eggy<=50){ //Opens question window if in corner
+					if(eggx>=650 & eggy<=50){ // Opens question window if in corner
 						eggx=0;
 						questionDialog();
 					};
-					levelProp(zlevel); //Calls local level items
+					levelProp(zlevel); // Calls local level items
 				};
-				function maintain(){ //Listens for game-overs and clears screen
+				function maintain(){ // Listens for game-overs and clears screen
 					ctx.clearRect(0, 0, gamearea.width, gamearea.height);
 					if(lives==0){
 						eggx=0;
@@ -167,17 +171,17 @@
 						screen2();
 					};
 				};
-				var eggplc=setInterval(function(){drawScreen();},canvasRefresh); //Refreshes screen
-				var clrspc=setInterval(function(){maintain();},canvasClear); //Periodically clears canvas and checks for game over
+				var eggplc=setInterval(function(){drawScreen();},canvasRefresh); // Refreshes screen
+				var clrspc=setInterval(function(){maintain();},canvasClear); // Periodically clears canvas and checks for game over
 				function refreshVariables(){
 					clearInterval(eggplc);
 					clearInterval(clrspc)
 					var canvasRefresh = document.getElementById("cnvRefTxt").value;
 					var canvasClear = document.getElementById("cnvClrTxt").value;
-					var eggplc=setInterval(function(){drawScreen();},canvasRefresh); //Refreshes screen
-					var clrspc=setInterval(function(){maintain();},canvasClear); //Clears Screen
+					var eggplc=setInterval(function(){drawScreen();},canvasRefresh); // Refreshes screen
+					var clrspc=setInterval(function(){maintain();},canvasClear); // Clears Screen
 				};
-				function levelProp(givenLevel){ //Draws items local to certain levels
+				function levelProp(givenLevel){ // Draws items local to certain levels
 					switch(givenLevel){
 						case 0:
 							ctx.fillStyle='tan';
@@ -199,8 +203,8 @@
 							break;
 					};
 				};
-				function createEnemy(pathSelector){ //Generates enemies (frying pans)
-					panimg = new Image(); //Loads egg image
+				function createEnemy(pathSelector){ // Generates enemies (frying pans)
+					panimg = new Image(); // Loads egg image
 					panimg.src = 'http://www.crazymatt.net/games/egg/pan.png';
 					panimg.onload = function(){
 						ctx.drawImage(panimg,panx,pany,50,50);
@@ -279,12 +283,28 @@
 					lives--;
 				};
 			};
+			function move(direction){
+				switch(direction){
+					case "up":
+						eggy = eggy - squareSize;
+						break;
+					case "down":
+						eggy = eggy + squareSize;
+						break;
+					case "left":
+						eggx = eggx - squareSize;
+						break;
+					case "right":
+						eggx = eggx + squareSize;
+						break;
+				}
+			}
 			runBackgroundMusic(1);
         </script>
-		<div id="gamebox"> <!--Start game view box-->
+		<div id="gamebox"> <!-- Start game view box -->
 			<div class="game">
 				<h1 class="game">Egg-ceptional Operations</h1>
-				<h2 class="game">By Matthew<br/></h2>
+				<h2 class="game">By Crazymatt.net<br/></h2>
 				<button onclick="screen2();" class="egg-start">Start Game</button>
 			</div>
 		</div>
@@ -295,7 +315,7 @@
 		<h3>Debug</h3>	
 		<button onclick="zlevel++;">Next Level</button><button onclick="zlevel--;">Previous Level</button><button onclick="lineGeneration=true;">Show Lines</button><button onclick="lineGeneration=false;">Hide Lines</button><button onclick="runBackgroundMusic(1);">Music On</button><button onclick="runBackgroundMusic(0);">Music Off</button><!--<button onclick="countdec=0;">Debug Math</button>-->
 		<br/>
-		<button onclick="lives++;">Add Life</button><button onclick="lives--;">Subtract Life</button><button onclick="infLives=1;">Enable Infinite Lives</button><button onclick="infLives=0;">Disable Infinite Lives</button><button onclick="eggx=eggx-50;">Move Left</button><button onclick="eggx=eggx+50;">Move Right</button><button onclick="eggy=eggy-50;">Move Up</button><button onclick="eggy=eggy+50;">Move Down</button>
+		<button onclick="lives++;">Add Life</button><button onclick="lives--;">Subtract Life</button><button onclick="infLives=1;">Enable Infinite Lives</button><button onclick="infLives=0;">Disable Infinite Lives</button><button onclick="move('left');">Move Left</button><button onclick="move('right');">Move Right</button><button onclick="move('up');">Move Up</button><button onclick="move('down');">Move Down</button>
 		<br/>
 		<input type="text" id="cnvRefTxt" value="100"/>
 		<input type="text" id="cnvClrTxt" value="100"/>
