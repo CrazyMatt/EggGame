@@ -68,8 +68,7 @@
 		var imgRecipAns;
 		var ran1;
 		var ran2;
-		var largerRandom;
-		var smallerRandom;
+		var largerRandom, smallerRandom; // ???
 		var infLives = 0;
 		var canvasRefresh = 25;
 		var canvasClear = 100;
@@ -77,6 +76,15 @@
 		var values2;
 		var xfuncans;
 		var countdec = 3;
+		
+		function generateLines(localContext){
+			for(localCount = 0; localCount < 16; localCount++){
+				localContext.moveTo(0, localCount * 50);
+				localContext.lineTo(800, localCount * 50);
+				localContext.moveTo(localCount * 50, 0);
+				localContext.lineTo(localCount * 50, 500);
+			};
+		};
 		
 		document.onkeydown = function(e) {
 			switch (e.keyCode) {
@@ -171,14 +179,11 @@
 				eggimg.onload = function(){
 					ctx.drawImage(eggimg,eggx,eggy,50,50);
 				};
+				
+				// Refeactored Line Generation Calls
 				if(lineGeneration == true){
-					for(lcount = 0; lcount < 16; lcount++){
-						ctx.moveTo(0, lcount * 50);
-						ctx.lineTo(800, lcount * 50);
-						ctx.moveTo(lcount * 50, 0);
-						ctx.lineTo(lcount * 50, 500);
-					};
-				};
+					generateLines(ctx);
+				}
 				ctx.stroke();
 				cartonimg = new Image(); // Loads carton image
 				cartonimg.src = 'http://www.crazymatt.net/games/egg/carton.png';
