@@ -22,6 +22,9 @@
 		// This tells how many lives the player has
 		var lives = 3;
 		
+		// Font for "Game" screen
+		var gameFont = "12px Arial";
+		
 		// These are "selected problems"
 		var values =
 		[
@@ -74,7 +77,6 @@
 		var values2;
 		var xfuncans;
 		var countdec = 3;
-		
 		
 		document.onkeydown = function(e) {
 			switch (e.keyCode) {
@@ -130,10 +132,10 @@
 			xfuncans = document.getElementsByTagName("img")[0].getAttribute("data-ans");
 			console.log(answeris.concat(xfuncans));
 		};
-    function screen2(){
+    		function screen2(){
 			var select = document.getElementById("gamebox");
 			zlevel = 0;
-        select.innerHTML = '<div class="game2"><h1 class="game">Level Select</h1><h3 class="level1">Goal: Get to the egg box safely! Avoid frying pans and holes on the way.</h3><button class="s1" onclick="gameload();">1</button><button onclick="" class="s2">2</button><button class="s3">3</button><button class="s4">4</button><button class="s5">5</button></div>';
+        		select.innerHTML = '<div class="game2"><h1 class="game">Level Select</h1><h3 class="level1">Goal: Get to the egg box safely! Avoid frying pans and holes on the way.</h3><button class="s1" onclick="gameload();">1</button><button onclick="" class="s2">2</button><button class="s3">3</button><button class="s4">4</button><button class="s5">5</button></div>';
 		};
 		function questionDialog(){
 			var select=document.getElementById("gamebox");
@@ -183,7 +185,7 @@
 				cartonimg.onload = function(){
 					ctx.drawImage(cartonimg,650,0,150,100);
 				};
-				ctx.font = "12px Arial";
+				ctx.font = gameFont;
 				ctx.fillText("Use arrow keys to move.",10,480);
 				ctx.fillText("egg box = way to next level | fry pan = enemy | black = hole",10,495);
 				ctx.fillStyle = 'yellow';
